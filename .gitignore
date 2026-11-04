@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+REINVENT-Tau-Hit2/
+*.csv
+*.log
+*.prior
+.env
