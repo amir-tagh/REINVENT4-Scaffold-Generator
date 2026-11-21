@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="682.938552pt" height="378.063688pt" viewBox="0 0 682.938552 378.063688" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-21T14:42:21.512703</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 378.063688 
+L 682.938552 378.063688 
+L 682.938552 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 236.895699 310.686128 
+C 267.103854 306.869946 294.747811 291.672547 314.156255 268.211771 
+C 333.564699 244.750991 343.312935 214.748973 341.401079 184.360807 
+C 339.489216 153.972641 326.05758 125.42897 303.861757 104.585709 
+C 281.665938 83.742448 252.335223 72.1296 221.886974 72.1296 
+L 221.886976 106.857216 
+C 243.505233 106.857216 264.33004 115.102338 280.089072 129.901053 
+C 295.848106 144.699768 305.384567 164.965775 306.74199 186.541373 
+C 308.099408 208.116971 301.17816 229.418404 287.398165 246.075557 
+C 273.61817 262.732709 253.99096 273.522861 232.54317 276.232351 
+z
+" style="fill: #197a7c; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 107.997585 228.884913 
+C 116.606812 255.38137 134.19851 278.060463 157.721513 292.988614 
+C 181.244515 307.916765 209.255356 314.177924 236.895699 310.686128 
+L 232.54317 276.232351 
+C 212.918526 278.711526 193.03083 274.266103 176.329498 263.667116 
+C 159.628166 253.068129 147.138061 236.965973 141.02551 218.153488 
+z
+" style="fill: #6b87b5; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 120.778365 127.714548 
+C 111.333473 142.597324 105.290064 159.383527 103.080844 176.871308 
+C 100.871625 194.359086 102.550615 212.120858 107.997585 228.884913 
+L 141.02551 218.153488 
+C 137.158161 206.251009 135.966078 193.640151 137.534624 181.223828 
+C 139.103169 168.807504 143.39399 156.8893 150.099863 146.322529 
+z
+" style="fill: #b6a1cf; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 177.8039 80.538901 
+C 166.120364 85.164738 155.237407 91.600906 145.555173 99.610753 
+C 135.872938 107.620601 127.511539 117.104757 120.778365 127.714548 
+L 150.099863 146.322529 
+C 154.880417 138.789578 160.81701 132.055826 167.691397 126.368835 
+C 174.565783 120.681843 182.292682 116.112164 190.587993 112.827819 
+z
+" style="fill: #e6ad69; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 221.886981 72.1296 
+C 214.357273 72.1296 206.844322 72.839785 199.447985 74.250712 
+C 192.051648 75.661638 184.804847 77.767032 177.8039 80.538901 
+L 190.587993 112.827819 
+C 195.558665 110.859793 200.703894 109.364963 205.955293 108.363205 
+C 211.206693 107.361447 216.540888 106.857216 221.88698 106.857216 
+z
+" style="fill: #aab6bf; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2"/>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 29px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #17354a" x="221.886979" y="187.907147" transform="rotate(-0 221.886979 187.907147)">48%</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #657783" x="221.886979" y="215.824756" transform="rotate(-0 221.886979 215.824756)">accepted</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_7">
+     <path d="M 487.334333 147.223437 
+L 509.334333 147.223437 
+L 509.334333 139.523438 
+L 487.334333 139.523438 
+z
+" style="fill: #197a7c; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_3">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="518.134333" y="147.223437" transform="rotate(-0 518.134333 147.223437)">Accepted (48%)</text>
+    </g>
+    <g id="patch_8">
+     <path d="M 487.334333 171.069375 
+L 509.334333 171.069375 
+L 509.334333 163.369375 
+L 487.334333 163.369375 
+z
+" style="fill: #6b87b5; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_4">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="518.134333" y="171.069375" transform="rotate(-0 518.134333 171.069375)">QED / property filters (22%)</text>
+    </g>
+    <g id="patch_9">
+     <path d="M 487.334333 194.915312 
+L 509.334333 194.915312 
+L 509.334333 187.215312 
+L 487.334333 187.215312 
+z
+" style="fill: #b6a1cf; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_5">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="518.134333" y="194.915312" transform="rotate(-0 518.134333 194.915312)">SA / SCScore (14%)</text>
+    </g>
+    <g id="patch_10">
+     <path d="M 487.334333 218.76125 
+L 509.334333 218.76125 
+L 509.334333 211.06125 
+L 487.334333 211.06125 
+z
+" style="fill: #e6ad69; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="518.134333" y="218.76125" transform="rotate(-0 518.134333 218.76125)">Duplicate / invalid (10%)</text>
+    </g>
+    <g id="patch_11">
+     <path d="M 487.334333 242.607187 
+L 509.334333 242.607187 
+L 509.334333 234.907187 
+L 487.334333 234.907187 
+z
+" style="fill: #aab6bf; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="518.134333" y="242.607187" transform="rotate(-0 518.134333 242.607187)">Other filters (6%)</text>
+    </g>
+   </g>
+  </g>
+  <g id="text_8">
+   <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: middle" x="200.865859" y="20.117344" transform="rotate(-0 200.865859 20.117344)">Illustrative molecular filtering outcomes</text>
+  </g>
+  <g id="text_9">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #697985" x="252.705859" y="368.784" transform="rotate(-0 252.705859 368.784)">Hypothetical proportions for documentation only — not measured results</text>
+  </g>
+ </g>
+</svg>
