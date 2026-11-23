@@ -124,3 +124,7 @@ If fewer than two eligible sites exist, that scaffold may be skipped. Unrelated 
 ## Repository graphics
 
 Editable SVG versions and PNG previews are in `docs/images/`. All examples are synthetic documentation illustrations; no proprietary compound structures or experimental results are included.
+
+## CMOS Molecular Scoring
+
+The V5 pipeline includes automatic cumulative molecular scoring and diversity-aware compound selection. See [CMOS Documentation](CMOS_DOCUMENTATION.md) for methodology, integration, and validation.
