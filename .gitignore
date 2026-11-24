@@ -5,3 +5,38 @@ REINVENT-Tau-Hit2/
 *.log
 *.prior
 .env
+
+# Computational outputs
+results/
+logs/
+backups/
+inputs/
+*.smi
+*.sdf
+*.out
+*.err
+
+# Python environments and caches
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Model weights
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.pkl.gz
+priors/
+
+# Backup files
+*.bak
+*.backup
+*.pre_morgan
+
+# Local analysis and temporary files
+Analysis-Best/
+reinvent_readme_update/
+REINVENT4_README_and_Graphics.zip
+reinvent_sampling_source.txt

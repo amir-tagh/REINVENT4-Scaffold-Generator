@@ -1,0 +1,66 @@
+--- a/scaffold_libinvent_v5_devicefix.py
++++ b/scaffold_libinvent_v5_devicefix.py
+@@ -582,6 +582,53 @@
+         print('WARNING: target not reached; try more rounds or additional designs.', file=sys.stderr)
+ 
+ 
++def add_cumulative_scores(hit_dir):
++    """Add static CMOS to every generated row; dynamic CMOS to selected rows.
++
++    Does not affect sampling or acceptance. Preserves existing columns/order.
++    """
++    import argparse
++    import importlib.util
++    import pandas as pd
++
++    csv_path = hit_dir / 'generated.csv'
++    if not csv_path.is_file():
++        return
++    original = pd.read_csv(csv_path, low_memory=False)
++    if 'IntrinsicScore' in original.columns and 'CumulativeScore' in original.columns:
++        return
++    if original.empty:
++        original['IntrinsicScore'] = pd.Series(dtype=float)
++        original['CumulativeScore'] = pd.Series(dtype=float)
++        original.to_csv(csv_path, index=False)
++        return
++
++    scorer_path = Path(__file__).resolve().parent / 'scripts' / 'cumulative_score.py'
++    if not scorer_path.is_file():
++        raise FileNotFoundError(f'CMOS scoring module missing: {scorer_path}')
++    spec = importlib.util.spec_from_file_location('cumulative_score', scorer_path)
++    scorer = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(scorer)
++
++    score_dir = hit_dir / 'cumulative_scoring'
++    scorer.run(argparse.Namespace(
++        input=str(csv_path), output=str(score_dir),
++        weights=None, select_per_hit=30, missing='reject',
++    ))
++    scored = pd.read_csv(score_dir / 'scored_molecules.csv', low_memory=False)
++    if len(scored) != len(original) or not scored['SMILES'].equals(original['SMILES']):
++        raise RuntimeError(f'CMOS output does not match original rows: {csv_path}')
++    score_columns = [c for c in scored.columns if c.startswith('Score_')]
++    score_columns += ['ValidSMILES', 'MissingComponents', 'IntrinsicScore',
++                      'CumulativeScore', 'SelectionRank', 'Selected']
++    for column in score_columns:
++        original[column] = scored[column].to_numpy()
++    tmp = csv_path.with_suffix('.scored.tmp')
++    original.to_csv(tmp, index=False)
++    tmp.replace(csv_path)
++    print(f'CMOS: added scores to {csv_path}', flush=True)
++
++
+ def main():
+     args = parse_args()
+     if min(args.num_molecules,args.max_rounds,args.batch_size,args.min_samples) < 1:
+@@ -645,6 +692,9 @@
+                     dest.rename(root/f'{folder}_interrupted_{time.time_ns()}')
+                 print(f'Processing {name}: {smi}',flush=True)
+                 process_hit(local,engine,shared)
++            # CMOS: score the completed hit before it is merged into batch CSVs.
++            # On --resume, score only if the columns are not already present.
++            add_cumulative_scores(dest)
+             timing=json.loads((dest/'timing.json').read_text())
+         except (Exception,SystemExit) as exc:
+             import traceback

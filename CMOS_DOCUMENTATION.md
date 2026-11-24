@@ -80,3 +80,69 @@ The scoring module successfully updated `Hit_0001/generated.csv` with molecular 
 - Docking scores are not included in the current CMOS formulation.
 - The validated HyperGator Conda environment includes a CUDA device-alignment fix applied to the installed LibInvent package. This environment-level modification is not included in the repository.
 - Molecular scoring and selection do not establish RNA binding affinity, biological activity, or experimental selectivity.
+
+---
+
+## CMOS V2 — Multiparameter Molecular Optimization
+
+CMOS V2 extends the original scoring framework with
+solubility, CNS, BBB, ADME and toxicity predictions.
+
+### Default CNS Optimization Weights
+
+| Component | Weight |
+|---|---:|
+| QED | 0.10 |
+| Synthetic accessibility | 0.10 |
+| Synthetic complexity | 0.10 |
+| Parent similarity | 0.10 |
+| Structural diversity | 0.15 |
+| Consensus solubility | 0.10 |
+| CNS desirability | 0.10 |
+| BBB desirability | 0.05 |
+| ADME desirability | 0.05 |
+| Toxicity desirability | 0.15 |
+| Total | 1.00 |
+
+### Methodology
+
+- Normalized component desirability scores between 0 and 1.
+- Weighted intrinsic molecular quality scoring.
+- Consensus ESOL and ADMET-AI solubility prediction.
+- Five-component CNS desirability scoring.
+- Multiparameter ADME and toxicity assessment.
+- Morgan fingerprint-based structural diversity.
+- Greedy diversity-aware compound selection per parent.
+- Configurable optimization profiles.
+- Missing-component eligibility checks.
+
+Predicted pKa is reported but excluded from active
+optimization pending further model validation.
+
+### Implementation
+
+- scripts/cumulative_score_v2.py
+- scripts/molecular_admet.py
+- scripts/molecular_pka.py
+- scripts/molecular_cns.py
+- scripts/molecular_adme.py
+- scripts/molecular_toxicity.py
+- config/optimization_profiles.json
+- config/cns_sensitivity_profiles.json
+
+### Pipeline Integration
+
+The V6 pipeline uses CMOS V2 for final compound
+prioritization through scripts/run_reinvent_v6.sh.
+
+CMOS V1 remains available for backward compatibility
+and methodological benchmarking.
+
+The maintained implementation is located in scripts/.
+
+CMOS V2 scores range from 0 to 1 and are not directly
+comparable with CMOS V1 scores.
+
+The workflow has been computationally validated on
+HyperGator. Experimental validation and portable
+environment configuration remain necessary.
