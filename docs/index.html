@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="REINVENT4 Scaffold Generator: an integrated platform for molecular generation, predictive ADMET and multiparameter optimization.">
+    <meta name="theme-color" content="#0b1120">
+    <title>REINVENT4 Scaffold Generator | V6</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/main.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar container">
+
+
+        <button id="menu-toggle" class="menu-toggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">&#9776;</button>
+
+        <div class="nav-links" id="nav-links">
+            <a href="#platform">Platform</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#optimization">CMOS V2</a>
+            <a href="#documentation">Documentation</a>
+            <a href="https://github.com/amir-tagh/REINVENT4-Scaffold-Generator">GitHub</a>
+            <button id="theme-toggle" class="theme-toggle"
+                    aria-label="Switch color theme">&#9788;</button>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="container hero-grid">
+
+        <div class="hero-content">
+            <div class="eyebrow">
+                OPEN-SOURCE COMPUTATIONAL DRUG DISCOVERY
+            </div>
+
+            <h1>Intelligent Molecular<br>
+                <span>Generation &amp; Optimization</span>
+            </h1>
+
+            <p class="hero-description">
+                An integrated computational platform combining
+                scaffold-based molecular generation, machine learning,
+                predictive ADMET and diversity-aware multiparameter
+                optimization.
+            </p>
+
+            <div class="hero-actions">
+                <a class="button primary"
+                   href="https://github.com/amir-tagh/REINVENT4-Scaffold-Generator">
+                    View on GitHub
+                </a>
+                <a class="button secondary"
+                   href="#documentation">
+                    Get Started
+                </a>
+            </div>
+
+            <div class="technology-tags">
+                <span>Python</span>
+                <span>PyTorch</span>
+                <span>RDKit</span>
+                <span>CUDA</span>
+                <span>Slurm</span>
+                <span>MIT License</span>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <canvas id="molecular-canvas"
+                    aria-label="Decorative molecular network">
+            </canvas>
+            <div class="visual-caption">
+                GENERATIVE MOLECULAR DESIGN
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="statistics">
+    <div class="container stats-grid">
+        <div class="stat">
+            <strong>10</strong>
+            <span>Optimization Components</span>
+        </div>
+        <div class="stat">
+            <strong>9</strong>
+            <span>Optimization Profiles</span>
+        </div>
+        <div class="stat">
+            <strong>3</strong>
+            <span>Computational Environments</span>
+        </div>
+        <div class="stat">
+            <strong>7</strong>
+            <span>Integrated Workflow Modules</span>
+        </div>
+    </div>
+</section>
+
+<section class="section container" id="platform">
+
+    <div class="section-heading">
+        <div class="eyebrow">PLATFORM CAPABILITIES</div>
+        <h2>From Molecular Generation to Prioritization</h2>
+        <p>A unified framework for computational molecular design.</p>
+    </div>
+
+    <div class="feature-grid">
+
+        <article class="feature-card">
+            <div class="feature-icon">01</div>
+            <h3>Molecular Generation</h3>
+            <p>Automated scaffold extraction, attachment-site
+               design and REINVENT4 LibInvent generation.</p>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-icon">02</div>
+            <h3>Molecular Filtering</h3>
+            <p>Structural validity, uniqueness, drug-likeness,
+               synthetic accessibility and synthetic complexity.</p>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-icon">03</div>
+            <h3>Predictive ADMET</h3>
+            <p>Machine learning-based molecular property
+               prediction using ADMET-AI and ESOL.</p>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-icon">04</div>
+            <h3>CNS &amp; ADME Optimization</h3>
+            <p>Assessment of CNS desirability, blood-brain
+               barrier penetration and pharmacokinetic properties.</p>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-icon">05</div>
+            <h3>CMOS V2</h3>
+            <p>Configurable multiparameter scoring integrating
+               ten molecular optimization components.</p>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-icon">06</div>
+            <h3>Structural Diversity</h3>
+            <p>Greedy per-parent compound selection using
+               Morgan fingerprints and Tanimoto similarity.</p>
+        </article>
+
+    </div>
+</section>
+
+<section class="section section-alt" id="architecture">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">SYSTEM ARCHITECTURE</div>
+            <h2>Integrated Computational Workflow</h2>
+            <p>Modular generation, prediction and optimization.</p>
+        </div>
+
+        <div class="workflow">
+
+            <div class="workflow-step">
+                <span class="step-number">01</span>
+                <div>
+                    <h3>Parent Molecules</h3>
+                    <p>SMILES input and molecular standardization</p>
+                </div>
+            </div>
+
+            <div class="workflow-arrow">&#8595;</div>
+
+            <div class="workflow-step">
+                <span class="step-number">02</span>
+                <div>
+                    <h3>Scaffold-Based Generation</h3>
+                    <p>Scaffold design and REINVENT4 LibInvent</p>
+                </div>
+            </div>
+
+            <div class="workflow-arrow">&#8595;</div>
+
+            <div class="workflow-step">
+                <span class="step-number">03</span>
+                <div>
+                    <h3>Molecular Filtering</h3>
+                    <p>QED, SA Score, SCScore and uniqueness</p>
+                </div>
+            </div>
+
+            <div class="workflow-arrow">&#8595;</div>
+
+            <div class="workflow-step">
+                <span class="step-number">04</span>
+                <div>
+                    <h3>Property Prediction</h3>
+                    <p>ESOL, ADMET-AI and pKa characterization</p>
+                </div>
+            </div>
+
+            <div class="workflow-arrow">&#8595;</div>
+
+            <div class="workflow-step">
+                <span class="step-number">05</span>
+                <div>
+                    <h3>Molecular Desirability</h3>
+                    <p>CNS, BBB, ADME and toxicity scoring</p>
+                </div>
+            </div>
+
+            <div class="workflow-arrow">&#8595;</div>
+
+            <div class="workflow-step">
+                <span class="step-number">06</span>
+                <div>
+                    <h3>CMOS V2 Optimization</h3>
+                    <p>Intrinsic scoring and diversity-aware selection</p>
+                </div>
+            </div>
+
+            <div class="workflow-arrow">&#8595;</div>
+
+            <div class="workflow-step final-step">
+                <span class="step-number">07</span>
+                <div>
+                    <h3>Prioritized Molecular Library</h3>
+                    <p>Selected compounds, properties and analysis</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section container" id="optimization">
+
+    <div class="section-heading">
+        <div class="eyebrow">MULTIPARAMETER OPTIMIZATION</div>
+        <h2>Cumulative Molecular Optimization Score</h2>
+        <p>CMOS V2 integrates molecular desirability and
+           structural diversity.</p>
+    </div>
+
+    <div class="optimization-grid">
+
+        <div class="panel">
+            <label for="profile-select">Optimization Profile</label>
+
+            <select id="profile-select">
+<option value="">Loading profiles...</option>
+</select>
+
+            <p id="profile-description"></p>
+
+            <div class="donut" id="weight-donut">
+                <div class="donut-center">
+                    <strong>100%</strong>
+                    <span>Total Weight</span>
+                </div>
+            </div>
+
+            <div id="weight-legend" class="weight-legend"></div>
+        </div>
+
+        <div class="panel">
+            <h3>Optimization Components</h3>
+            <div id="weight-bars"></div>
+        </div>
+
+    </div>
+
+    <div class="notice">
+        CMOS V2 performs post-generation optimization.
+        Predicted pKa is reported for characterization but is
+        excluded from active CMOS scoring.
+    </div>
+
+</section>
+
+
+
+
+<section class="section section-alt" id="documentation">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">GET STARTED</div>
+            <h2>Documentation &amp; Installation</h2>
+            <p>Deploy the platform on a Linux GPU workstation
+               or HPC infrastructure.</p>
+        </div>
+
+        <div class="feature-grid documentation-grid">
+
+            <a class="feature-card"
+               href="https://github.com/amir-tagh/REINVENT4-Scaffold-Generator/blob/main/docs/INSTALLATION.md">
+                <h3>Installation Guide</h3>
+                <p>Environments, pretrained models, CUDA patches
+                   and runtime configuration.</p>
+                <span class="card-link">Read documentation &#8594;</span>
+            </a>
+
+            <a class="feature-card"
+               href="https://github.com/amir-tagh/REINVENT4-Scaffold-Generator/blob/main/docs/CMOS_DOCUMENTATION.md">
+                <h3>CMOS Methodology</h3>
+                <p>Scoring functions, optimization profiles
+                   and molecular selection.</p>
+                <span class="card-link">Explore methodology &#8594;</span>
+            </a>
+
+            <a class="feature-card"
+               href="https://github.com/amir-tagh/REINVENT4-Scaffold-Generator">
+                <h3>Source Code</h3>
+                <p>Python modules, configuration files,
+                   environment specifications and examples.</p>
+                <span class="card-link">View repository &#8594;</span>
+            </a>
+
+        </div>
+
+        <div class="code-panel">
+            <div class="code-header">
+                <span>Terminal</span>
+                <button class="copy-button"
+                        data-copy="install-command">Copy</button>
+            </div>
+            <pre id="install-command"><code>git clone https://github.com/amir-tagh/REINVENT4-Scaffold-Generator.git
+cd REINVENT4-Scaffold-Generator
+
+conda env create -f environments/reinvent4.yml
+conda env create -f environments/admet_ai.yml
+conda env create -f environments/cns_mpo.yml
+
+cp config/runtime.example.conf config/runtime.conf</code></pre>
+        </div>
+
+        <div class="notice">
+            External pretrained models and runtime configuration
+            are required before execution. See the complete
+            installation guide.
+        </div>
+
+    </div>
+</section>
+
+<section class="section container" id="validation">
+
+    <div class="section-heading">
+        <div class="eyebrow">SCIENTIFIC REPRODUCIBILITY</div>
+        <h2>Validation &amp; Transparency</h2>
+    </div>
+
+    <div class="feature-grid">
+
+        <article class="feature-card">
+            <h3>HPC Development</h3>
+            <p>The original V6 computational workflow was
+               executed on the University of Florida
+               HyperGator infrastructure.</p>
+        </article>
+
+        <article class="feature-card">
+            <h3>Reproducible Configuration</h3>
+            <p>Exported environments, configurable parameters,
+               compatibility patches and public example inputs.</p>
+        </article>
+
+        <article class="feature-card">
+            <h3>Current Limitations</h3>
+            <p>Independent deployment and fresh installation
+               remain unvalidated. Predicted properties require
+               experimental confirmation.</p>
+        </article>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>REINVENT4 Scaffold Generator</h3>
+            <p>Open-source computational drug discovery software.</p>
+            <p>Developed by Amirhossein Taghavi.</p>
+        </div>
+        <div class="footer-links">
+            <a href="https://github.com/amir-tagh/REINVENT4-Scaffold-Generator">GitHub</a>
+            <a href="https://github.com/amir-tagh/REINVENT4-Scaffold-Generator/blob/main/CITATION.cff">Citation</a>
+            <a href="https://github.com/amir-tagh/REINVENT4-Scaffold-Generator/blob/main/LICENSE">MIT License</a>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        &copy; 2026 Amirhossein Taghavi. Version 6.0.0.
+    </div>
+</footer>
+
+</body>
+</html>

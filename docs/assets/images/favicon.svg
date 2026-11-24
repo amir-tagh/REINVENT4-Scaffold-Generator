@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 64 64">
+
+    <rect width="64" height="64"
+          rx="14" fill="#0b1120"/>
+
+    <g fill="none"
+       stroke="#38bdf8"
+       stroke-width="2.5"
+       stroke-linejoin="round">
+
+        <polygon points="23,12 37,20 37,36 23,44 9,36 9,20"/>
+
+        <polygon points="37,20 51,28 51,44 37,52 23,44 37,36"/>
+
+        <path d="M15 23 L23 18"/>
+        <path d="M31 24 L31 33"/>
+        <path d="M29 45 L37 47"/>
+
+    </g>
+
+    <circle cx="51" cy="28" r="4" fill="#2dd4bf"/>
+
+</svg>
