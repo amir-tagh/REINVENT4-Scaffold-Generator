@@ -1,8 +1,5 @@
 #!/bin/bash
 #SBATCH --job-name=REINVENT_V6
-#SBATCH --account=scripps-dept
-#SBATCH --qos=scripps-dept
-#SBATCH --partition=hpg-turin
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
@@ -12,14 +9,37 @@
 
 set -euo pipefail
 
-ROOT=/blue/mdisney/a.taghavi/REINVENT4
+# Repository location
+# Run from the repository root when submitting through Slurm.
+if [[ -n "${REINVENT_ROOT:-}" ]]; then
+    ROOT="$REINVENT_ROOT"
+elif [[ -n "${SLURM_JOB_ID:-}" ]]; then
+    ROOT="${SLURM_SUBMIT_DIR:?Missing Slurm submission directory}"
+else
+    ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+fi
 
 cd "$ROOT"
 
-# Python environments
-REINVENT_PY=/blue/mdisney/a.taghavi/reinvent4_env/bin/python
-ADMET_PY=/blue/mdisney/a.taghavi/admet_ai_env/bin/python
-PKA_PY=/blue/mdisney/share/.conda/envs/cns_mpo/bin/python
+# Load runtime configuration
+RUNTIME_CONFIG="${RUNTIME_CONFIG:-config/runtime.conf}"
+
+if [[ ! -f "$RUNTIME_CONFIG" ]]; then
+    RUNTIME_CONFIG="config/runtime.example.conf"
+fi
+
+source "$RUNTIME_CONFIG"
+
+resolve_python() {
+    local env_name="$1"
+
+    conda run --no-capture-output -n "$env_name" \
+        python -c 'import sys; print(sys.executable)'
+}
+
+REINVENT_PY="${REINVENT_PY:-$(resolve_python "$REINVENT_ENV")}"
+ADMET_PY="${ADMET_PY:-$(resolve_python "$ADMET_ENV")}"
+PKA_PY="${PKA_PY:-$(resolve_python "$PKA_ENV")}"
 
 # Input arguments
 INPUT=${1:?Provide input SMILES file}
@@ -28,8 +48,8 @@ OUT=${3:-results/v6/REINVENT_V6_Results}
 PROFILE=${4:-cns}
 SELECT=${5:-30}
 
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-4}
-export MKL_NUM_THREADS=${SLURM_CPUS_PER_TASK:-4}
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-${CPU_THREADS:-4}}
+export MKL_NUM_THREADS=${SLURM_CPUS_PER_TASK:-${CPU_THREADS:-4}}
 export PYTHONUNBUFFERED=1
 
 mkdir -p "$OUT"
@@ -59,7 +79,9 @@ echo "Output: $OUT"
 echo "Optimization profile: $PROFILE"
 echo "Selected per parent: $SELECT"
 
-nvidia-smi
+if command -v nvidia-smi >/dev/null 2>&1; then
+    nvidia-smi || true
+fi
 
 # Validate dependencies
 for PYTHON in "$REINVENT_PY" "$ADMET_PY" "$PKA_PY"
@@ -68,7 +90,9 @@ do
 done
 
 test -s "$INPUT"
-test -s priors/libinvent.prior
+test -s "$LIBINVENT_PRIOR"
+test -d "$SCSCORE_REPO"
+test -s "$SCSCORE_MODEL"
 
 "$REINVENT_PY" -c '
 import json, sys
@@ -94,13 +118,13 @@ stage "STAGE 1: REINVENT4 MOLECULAR GENERATION"
     --input "$INPUT" \
     --num-molecules "$N" \
     --out "$GEN" \
-    --model priors/libinvent.prior \
-    --device cuda:0 \
+    --model "$LIBINVENT_PRIOR" \
+    --device "$REINVENT_DEVICE" \
     --qed-min 0.5 \
     --sa-max 4.0 \
     --sc-max 5.0 \
-    --scscore-repo ./scscore \
-    --scscore-model scscore/models/full_reaxys_model_1024bool/model.ckpt-10654.as_numpy.json.gz \
+    --scscore-repo "$SCSCORE_REPO" \
+    --scscore-model "$SCSCORE_MODEL" \
     --max-rounds 30 \
     --batch-size 512 \
     --min-samples 128
@@ -132,7 +156,7 @@ stage "STAGE 3: GPU-ACCELERATED PKA PREDICTION"
     scripts/molecular_pka.py \
     --input "$ADMET/ADMET_Predictions.csv" \
     --output "$ADMET/ADMET_pKa.csv" \
-    --device cuda
+    --device "$PKA_DEVICE"
 
 test -s "$ADMET/ADMET_pKa.csv"
 

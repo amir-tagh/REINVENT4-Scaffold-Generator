@@ -40,3 +40,6 @@ Analysis-Best/
 reinvent_readme_update/
 REINVENT4_README_and_Graphics.zip
 reinvent_sampling_source.txt
+
+# Local runtime configuration
+config/runtime.conf

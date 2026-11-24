@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """REINVENT4 V5: symmetry-aware R-groups, parent features, clustering, prioritization.
 Read-only inputs. RDKit, pandas, numpy, matplotlib required.
-Usage: python scripts/analyze_reinvent_rgroups_v5.py --input results/v5/REINVENT_V5_All_8_Hits_Relaxed --output results/v5/REINVENT_V5_RGroup_Analysis_V5
+Usage: python analysis/analyze_reinvent_rgroups_v5.py --input results/v5/REINVENT_V5_All_8_Hits_Relaxed --output results/v5/REINVENT_V5_RGroup_Analysis_V5
 """
 import argparse
 from collections import Counter, defaultdict

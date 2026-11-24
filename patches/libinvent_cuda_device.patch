@@ -1,0 +1,28 @@
+--- a/reinvent/models/libinvent/models/model.py
++++ b/reinvent/models/libinvent/models/model.py
+@@ -147,20 +147,22 @@
+         :return: a generator with (scaffold_smi, decoration_smi, nll) triplets.
+         """
+         batch_size = scaffold_seqs.size(0)
++        device = next(self.network.parameters()).device
+ 
+         input_vector = torch.full(
+             (batch_size, 1),
+             self.vocabulary.decoration_vocabulary["^"],
+             dtype=torch.long,
++            device=device,
+         )  # (batch, 1)
+ 
+-        seq_lengths = torch.ones(batch_size)  # (batch)
++        seq_lengths = torch.ones(batch_size, device=device)  # (batch)
+         encoder_padded_seqs, hidden_states = self.network.forward_encoder(
+             scaffold_seqs, scaffold_seq_lengths
+         )
+ 
+-        nlls = torch.zeros(batch_size)
+-        not_finished = torch.ones(batch_size, 1, dtype=torch.long)
++        nlls = torch.zeros(batch_size, device=device)
++        not_finished = torch.ones(batch_size, 1, dtype=torch.long, device=device)
+         sequences = []
+ 
+         for _ in range(self.max_sequence_length - 1):

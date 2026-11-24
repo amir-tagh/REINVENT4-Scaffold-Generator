@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the following metadata."
+title: "REINVENT4 Scaffold Generator: Integrated Molecular Generation and Multiparameter Optimization"
+type: software
+authors:
+  - family-names: Taghavi
+    given-names: Amirhossein
+version: "6.0.0"
+repository-code: "https://github.com/amir-tagh/REINVENT4-Scaffold-Generator"
+license: MIT
+keywords:
+  - molecular generation
+  - generative AI
+  - drug discovery
+  - cheminformatics
+  - REINVENT4
+  - LibInvent
+  - ADMET
+  - multiparameter optimization
+  - molecular diversity
