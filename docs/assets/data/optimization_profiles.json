@@ -1,0 +1,110 @@
+{
+    "cns": {
+        "QED": 0.1,
+        "SA": 0.1,
+        "SCScore": 0.1,
+        "ParentSimilarity": 0.1,
+        "Diversity": 0.15,
+        "Solubility": 0.1,
+        "CNS": 0.1,
+        "BBB": 0.05,
+        "ADME": 0.05,
+        "Toxicity": 0.15
+    },
+    "general": {
+        "QED": 0.2,
+        "SA": 0.1,
+        "SCScore": 0.1,
+        "ParentSimilarity": 0.1,
+        "Diversity": 0.15,
+        "Solubility": 0.15,
+        "CNS": 0.0,
+        "BBB": 0.0,
+        "ADME": 0.1,
+        "Toxicity": 0.1
+    },
+    "oral": {
+        "QED": 0.15,
+        "SA": 0.1,
+        "SCScore": 0.1,
+        "ParentSimilarity": 0.1,
+        "Diversity": 0.15,
+        "Solubility": 0.15,
+        "CNS": 0.0,
+        "BBB": 0.0,
+        "ADME": 0.15,
+        "Toxicity": 0.1
+    },
+    "experimental": {
+        "QED": 0.15,
+        "SA": 0.15,
+        "SCScore": 0.1,
+        "ParentSimilarity": 0.15,
+        "Diversity": 0.2,
+        "Solubility": 0.2,
+        "CNS": 0.0,
+        "BBB": 0.0,
+        "ADME": 0.0,
+        "Toxicity": 0.05
+    },
+    "cns_original": {
+        "QED": 0.15,
+        "SA": 0.1,
+        "SCScore": 0.1,
+        "ParentSimilarity": 0.1,
+        "Diversity": 0.15,
+        "Solubility": 0.15,
+        "CNS": 0.1,
+        "BBB": 0.05,
+        "ADME": 0.05,
+        "Toxicity": 0.05
+    },
+    "cns_toxicity": {
+        "QED": 0.15,
+        "SA": 0.1,
+        "SCScore": 0.1,
+        "ParentSimilarity": 0.1,
+        "Diversity": 0.15,
+        "Solubility": 0.1,
+        "CNS": 0.1,
+        "BBB": 0.05,
+        "ADME": 0.05,
+        "Toxicity": 0.1
+    },
+    "cns_safety": {
+        "QED": 0.1,
+        "SA": 0.1,
+        "SCScore": 0.1,
+        "ParentSimilarity": 0.1,
+        "Diversity": 0.15,
+        "Solubility": 0.1,
+        "CNS": 0.1,
+        "BBB": 0.05,
+        "ADME": 0.05,
+        "Toxicity": 0.15
+    },
+    "cns_diversity": {
+        "QED": 0.1,
+        "SA": 0.1,
+        "SCScore": 0.1,
+        "ParentSimilarity": 0.1,
+        "Diversity": 0.25,
+        "Solubility": 0.1,
+        "CNS": 0.1,
+        "BBB": 0.05,
+        "ADME": 0.05,
+        "Toxicity": 0.05
+    },
+    "cns_balanced": {
+        "QED": 0.1,
+        "SA": 0.1,
+        "SCScore": 0.1,
+        "ParentSimilarity": 0.1,
+        "Diversity": 0.15,
+        "Solubility": 0.1,
+        "CNS": 0.1,
+        "BBB": 0.05,
+        "ADME": 0.1,
+        "Toxicity": 0.1
+    }
+}
