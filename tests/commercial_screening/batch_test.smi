@@ -1,0 +1,5 @@
+CC(C)Cc1ccc(C(C)C(=O)O)cc1 Ibuprofen
+CC(C)CC1=CC=C(C(C)C(=O)O)C=C1 Ibuprofen_duplicate
+CC(=O)Oc1ccccc1C(=O)O Aspirin
+CCO Ethanol
+INVALID_SMILES Invalid_test

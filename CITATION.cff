@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Taghavi
     given-names: Amirhossein
-version: "6.0.0"
+version: 7.0.0
 repository-code: "https://github.com/amir-tagh/REINVENT4-Scaffold-Generator"
 license: MIT
 keywords:

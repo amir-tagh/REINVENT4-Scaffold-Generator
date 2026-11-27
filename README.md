@@ -1,14 +1,15 @@
-# REINVENT4 Scaffold Generator — V6
+# REINVENT4 Scaffold Generator — V7
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.11-blue.svg)
-![Version](https://img.shields.io/badge/Version-6.0.0-green.svg)
+![Version](https://img.shields.io/badge/Version-7.0.0-green.svg)
 ![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey.svg)
 ![GPU](https://img.shields.io/badge/Acceleration-CUDA-76B900.svg)
 
 An integrated computational drug discovery platform for
 scaffold-based molecular generation, molecular property prediction,
-multiparameter optimization, and diversity-aware compound selection.
+multiparameter optimization, diversity-aware compound selection,
+and commercial compound screening.
 
 The platform integrates REINVENT4 LibInvent with cheminformatics,
 machine learning-based ADMET prediction, synthetic complexity
@@ -31,6 +32,12 @@ assessment, and configurable molecular optimization.
 - Diversity-aware molecular selection for each parent compound.
 - Automated molecular library analysis and visualization.
 - Local GPU and Slurm-based HPC execution.
+- Commercial screening across eight enabled vendor libraries.
+- Stereochemistry-aware exact molecular matching.
+- ECFP-based structural analog identification.
+- Persistent SQLite cache and interrupted-session recovery.
+- Configurable commercial screening and remote submission limits.
+- Commercial annotation of CMOS V2 selected molecules.
 
 ## Platform Architecture
 
@@ -49,6 +56,13 @@ flowchart TD
     K --> L[Diversity-Aware Selection]
     L --> M[Prioritized Molecular Library]
     M --> N[Library Analysis and Visualization]
+    M --> O[Optional Commercial Screening]
+    O --> P[Exact Molecular Matching]
+    O --> Q[Structural Analog Identification]
+    O <--> R[Persistent SQLite Cache]
+    P --> S[CMOS V2 Commercial Integration]
+    Q --> S
+    S --> T[Commercially Annotated Molecular Library]
 ```
 
 ## Installation
@@ -216,12 +230,60 @@ Profiles and sensitivity configurations are defined in:
 See the [CMOS Documentation](docs/CMOS_DOCUMENTATION.md)
 for additional methodological details.
 
+
+## V7 Commercial Compound Screening
+
+V7 extends the original V6 workflow with commercial catalog
+screening through SwissSimilarity.
+
+Supported commercial libraries:
+
+- Enamine
+- ChemBridge
+- ChemDiv
+- Life Chemicals
+- Maybridge
+- SPECS
+- Asinex
+- Otava
+
+The default profile uses Enamine and ChemBridge.
+
+### Full V7 Pipeline
+
+    bash scripts/run_reinvent_v7.sh full examples/example_hits.txt 100 results/v7/example cns 10
+
+### Commercial-Only Screening
+
+    bash scripts/run_reinvent_v7.sh commercial-only results/example/cmos/CMOS_V2_selected.csv results/v7/commercial --libraries Enamine ChemBridge
+
+### Remote Screening
+
+    bash scripts/run_reinvent_v7.sh commercial-only tests/commercial_screening/mock_cmos.csv results/v7/remote --libraries Enamine --allow-remote --maximum-new-jobs 1
+
+Remote submissions are disabled by default.
+
+V7 preserves the original CMOS V2 scores and selection rankings
+and adds 21 commercial screening annotations.
+
+The original V7 implementation was validated on HyperGator
+through offline, controlled live, recovery, full pipeline,
+and data integrity tests.
+
+The portable launcher has passed Bash syntax validation.
+Independent end-to-end deployment remains unvalidated.
+
+See the [Commercial Screening Documentation](docs/COMMERCIAL_SCREENING.md)
+for detailed configuration, usage, outputs, and limitations.
+
 ## Repository Structure
 
 ```text
 REINVENT4-Scaffold-Generator/
 ├── scripts/
 │   ├── run_reinvent_v6.sh
+│   ├── run_reinvent_v7.sh
+│   ├── commercial/
 │   ├── scaffold_libinvent_v5_devicefix.py
 │   ├── cumulative_score.py
 │   ├── cumulative_score_v2.py
@@ -236,6 +298,7 @@ REINVENT4-Scaffold-Generator/
 │   ├── compare_cmos_versions.py
 │   └── plot_cmos_benchmark.py
 ├── config/
+│   ├── commercial_sources.json
 │   ├── optimization_profiles.json
 │   ├── cns_sensitivity_profiles.json
 │   └── runtime.example.conf
@@ -248,7 +311,10 @@ REINVENT4-Scaffold-Generator/
 │   └── patch_morgan_generator.py
 ├── examples/
 │   └── example_hits.txt
+├── tests/
+│   └── commercial_screening/
 ├── docs/
+│   ├── COMMERCIAL_SCREENING.md
 │   ├── INSTALLATION.md
 │   ├── CMOS_DOCUMENTATION.md
 │   ├── README_V3.md
@@ -307,7 +373,9 @@ have not yet been validated.
 - RNA binding affinity is not currently an optimization objective.
 - Predicted pKa is excluded from active CMOS V2 optimization.
 - Synthetic accessibility does not establish synthetic feasibility.
-- Commercial availability is not verified.
+- Commercial catalog matches do not establish current stock availability.
+- Absence of returned exact matches does not establish catalog absence.
+- Large-scale remote screening and concurrency remain unvalidated.
 - CPU-only execution has not been validated.
 - Diversity-aware selection is performed per parent molecule.
 - Global uniqueness across different parent selections is not guaranteed.
@@ -320,6 +388,7 @@ are not distributed with this repository.
 
 - [Installation Guide](docs/INSTALLATION.md)
 - [CMOS Methodology](docs/CMOS_DOCUMENTATION.md)
+- [Commercial Screening](docs/COMMERCIAL_SCREENING.md)
 - [Historical V3 Documentation](docs/README_V3.md)
 - [Legacy Code](legacy/README.md)
 - [Third-Party Notices](THIRD_PARTY_NOTICES.md)
