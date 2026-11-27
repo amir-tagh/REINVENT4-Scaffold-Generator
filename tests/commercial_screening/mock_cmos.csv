@@ -1,0 +1,5 @@
+ParentID,GeneratedID,SMILES,CMOS_V2_Intrinsic,CMOS_V2_Cumulative,CMOS_V2_SelectionRank,QED,VendorStatus,VendorIDs
+Hit_0001,Test_0001,CC(C)Cc1ccc(C(C)C(=O)O)cc1,0.82,0.85,1,0.81,UNKNOWN,
+Hit_0001,Test_0002,CC(=O)Oc1ccccc1C(=O)O,0.79,0.81,2,0.75,UNKNOWN,
+Hit_0002,Test_0003,CC(C)CC1=CC=C(C(C)C(=O)O)C=C1,0.77,0.80,1,0.81,UNKNOWN,
+Hit_0002,Test_0004,CCO,0.65,0.70,2,0.40,UNKNOWN,

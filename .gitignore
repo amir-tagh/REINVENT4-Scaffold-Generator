@@ -43,3 +43,16 @@ reinvent_sampling_source.txt
 
 # Local runtime configuration
 config/runtime.conf
+
+# V7 commercial screening databases
+databases/
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.db
+*.db-*
+
+# Public commercial screening test fixtures
+!tests/commercial_screening/mock_cmos.csv
+!tests/commercial_screening/batch_test.smi

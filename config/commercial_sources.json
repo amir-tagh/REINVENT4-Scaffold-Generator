@@ -1,0 +1,198 @@
+{
+    "schema_version": "1.0",
+    "provider": "SwissSimilarity",
+    "base_url": "https://swisssimilarity.ch:1234",
+    "screening": {
+        "method": "ECFP",
+        "mode": "both",
+        "minimum_analog_similarity": 0.5,
+        "maximum_analogs_per_library": 20,
+        "preserve_stereochemistry": true,
+        "verify_molecular_identity": true
+    },
+    "api": {
+        "request_timeout": 60,
+        "poll_interval": 15,
+        "maximum_wait": 900,
+        "request_interval": 3,
+        "parallel_jobs": 1,
+        "allow_remote_submission": false,
+        "maximum_new_jobs_per_run": 1
+    },
+    "cache": {
+        "enabled": true,
+        "database": "databases/commercial/screening_cache.sqlite",
+        "reuse_completed": true,
+        "resume_sessions": true,
+        "refresh": false
+    },
+    "libraries": {
+        "Enamine": {
+            "name": "Enamine",
+            "category": "vendor",
+            "enabled": true,
+            "validated": true
+        },
+        "ChemBridge": {
+            "name": "ChemBridge",
+            "category": "vendor",
+            "enabled": true,
+            "validated": true
+        },
+        "Asinex": {
+            "name": "Asinex",
+            "category": "vendor",
+            "enabled": true,
+            "validated": true
+        },
+        "AsisChem": {
+            "name": "AsisChem",
+            "category": "vendor",
+            "enabled": false,
+            "validated": true
+        },
+        "ChemDiv": {
+            "name": "ChemDiv",
+            "category": "vendor",
+            "enabled": true,
+            "validated": true
+        },
+        "Maybridge": {
+            "name": "Maybridge",
+            "category": "vendor",
+            "enabled": true,
+            "validated": true
+        },
+        "Otava": {
+            "name": "Otava",
+            "category": "vendor",
+            "enabled": true,
+            "validated": true
+        },
+        "SPECS": {
+            "name": "SPECS",
+            "category": "vendor",
+            "enabled": true,
+            "validated": true
+        },
+        "TimTec": {
+            "name": "TimTec",
+            "category": "vendor",
+            "enabled": false,
+            "validated": true
+        },
+        "Vitas": {
+            "name": "Vitas",
+            "category": "vendor",
+            "enabled": false,
+            "validated": true
+        },
+        "LifeChemicals": {
+            "name": "Life Chemicals",
+            "category": "vendor",
+            "enabled": true,
+            "validated": true
+        },
+        "InnovaPharm": {
+            "name": "InnovaPharm",
+            "category": "vendor",
+            "enabled": false,
+            "validated": false
+        },
+        "Enamine_Tang": {
+            "name": "Enamine Tangible",
+            "category": "tangible",
+            "enabled": false,
+            "validated": false
+        },
+        "Otava_Tang": {
+            "name": "Otava Tangible",
+            "category": "tangible",
+            "enabled": false,
+            "validated": false
+        },
+        "LifeChemicals_Tang": {
+            "name": "Life Chemicals Tangible",
+            "category": "tangible",
+            "enabled": false,
+            "validated": false
+        },
+        "InnovaPharm_Tang": {
+            "name": "InnovaPharm Tangible",
+            "category": "tangible",
+            "enabled": false,
+            "validated": false
+        },
+        "ZINC_drug": {
+            "name": "ZINC Drug-like",
+            "category": "aggregated",
+            "enabled": false,
+            "validated": false
+        },
+        "ZINC_lead": {
+            "name": "ZINC Lead-like",
+            "category": "aggregated",
+            "enabled": false,
+            "validated": false
+        },
+        "ZINC_frag": {
+            "name": "ZINC Fragments",
+            "category": "aggregated",
+            "enabled": false,
+            "validated": false
+        }
+    },
+    "profiles": {
+        "validated": [
+            "Enamine",
+            "ChemBridge",
+            "ChemDiv",
+            "LifeChemicals",
+            "Maybridge",
+            "SPECS",
+            "Asinex",
+            "Otava",
+            "AsisChem",
+            "TimTec",
+            "Vitas"
+        ],
+        "vendors": [
+            "Enamine",
+            "ChemBridge",
+            "ChemDiv",
+            "LifeChemicals",
+            "Maybridge",
+            "SPECS",
+            "Asinex",
+            "Otava"
+        ],
+        "tangible": [
+            "Enamine_Tang",
+            "Otava_Tang",
+            "LifeChemicals_Tang",
+            "InnovaPharm_Tang"
+        ],
+        "zinc": [
+            "ZINC_drug",
+            "ZINC_lead",
+            "ZINC_frag"
+        ],
+        "default": [
+            "Enamine",
+            "ChemBridge"
+        ],
+        "enamine": [
+            "Enamine"
+        ],
+        "chembridge": [
+            "ChemBridge"
+        ],
+        "chemdiv": [
+            "ChemDiv"
+        ],
+        "lifechemicals": [
+            "LifeChemicals"
+        ]
+    },
+    "default_profile": "default"
+}
